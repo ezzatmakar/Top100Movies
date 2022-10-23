@@ -12,7 +12,7 @@
 ## Live Demos
 > **Note that:** I exposed **RESTful** APIs 
 
-1. [Api Docs]()
+1. [Api Docs](https://top100movies-ezzat.herokuapp.com/docs)
 
 ## Schema with NoSQL
 [Open Details](./schema-with-no-sql.md)
