@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SWAGGER_TAGS } from '../common/constants/swagger.constants';
+import { CreateUserInput } from './dto/create-user.input';
 import { GetTop100MoviesInput } from './dto/get-top-movies-movies.input';
 import { RankMovieInput } from './dto/rank-movie.input';
 import { UserService } from './user.service';
@@ -18,6 +19,12 @@ import { UserService } from './user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @Post()
+  @ApiResponse({ description: 'This for creating user', status: 201 })
+  @HttpCode(201)
+  create(@Body() CreateUser: CreateUserInput) {
+    return this.userService.createUser(CreateUser);
+  }
   @Post(':userId/movies/:movieId/rank')
   @ApiResponse({
     description: 'This for ranking movie',

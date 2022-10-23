@@ -6,6 +6,7 @@ import {
 import * as _ from 'lodash';
 import { getPaginatedItems } from '../common/helpers/pagination-array.helper';
 import { MovieType, UserRepository, MovieRepository } from '../models';
+import { CreateUserInput } from './dto/create-user.input';
 import { GetTop100MoviesInput } from './dto/get-top-movies-movies.input';
 import { RankMovieInput } from './dto/rank-movie.input';
 
@@ -78,5 +79,9 @@ export class UserService {
       ...user,
       top100Movies: getPaginatedItems(movies, page, limit),
     };
+  }
+
+  async createUser(CreateUserInput: CreateUserInput) {
+    return this.userRepository.create(CreateUserInput);
   }
 }
